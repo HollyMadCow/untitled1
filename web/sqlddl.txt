@@ -1,0 +1,60 @@
+CREATE TABLE area
+(
+    id BIGINT(20) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    areaname VARCHAR(20) NOT NULL,
+    belongstation VARCHAR(20) NOT NULL,
+    belongcity VARCHAR(20) NOT NULL,
+    belongprovince VARCHAR(20) NOT NULL
+);
+CREATE TABLE `case`
+(
+    id BIGINT(20) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    caseid VARCHAR(20) NOT NULL,
+    casedetail VARCHAR(1000) NOT NULL,
+    suspectname VARCHAR(100),
+    suspectid VARCHAR(100),
+    wechat VARCHAR(100),
+    qq VARCHAR(100),
+    cellphone VARCHAR(500),
+    alipay VARCHAR(100),
+    email VARCHAR(100),
+    IMSE VARCHAR(500),
+    request VARCHAR(1000) NOT NULL,
+    area VARCHAR(50) NOT NULL,
+    caseby VARCHAR(20) NOT NULL,
+    officerphone VARCHAR(20) NOT NULL,
+    state VARCHAR(10) NOT NULL,
+    arealeader VARCHAR(10),
+    stationleader VARCHAR(10),
+    cyberleader VARCHAR(10),
+    submitdate DATE,
+    handlesir VARCHAR(10),
+    respone VARCHAR(100)
+);
+CREATE TABLE logs
+(
+    id BIGINT(20) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    realname VARCHAR(10) NOT NULL,
+    opdate DATETIME NOT NULL,
+    optype VARCHAR(50) NOT NULL
+);
+CREATE TABLE user
+(
+    id BIGINT(20) unsigned PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    username VARCHAR(10),
+    userid VARCHAR(18),
+    policeid INT(8) NOT NULL,
+    longcellphone VARCHAR(20),
+    shortcellphone VARCHAR(10),
+    area VARCHAR(50) NOT NULL,
+    realname VARCHAR(10) NOT NULL,
+    loginkind TINYINT(1) NOT NULL,
+    isadmin TINYINT(1) NOT NULL,
+    station VARCHAR(20) NOT NULL,
+    city VARCHAR(20) NOT NULL,
+    province VARCHAR(20) NOT NULL,
+    department VARCHAR(20) NOT NULL,
+    usertype VARCHAR(20)
+);
+CREATE UNIQUE INDEX caseid ON `case` (caseid);
+CREATE INDEX realname ON logs (realname);
