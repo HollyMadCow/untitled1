@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cn">
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.*"%><!--使用Enumeration导入此包-->
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,6 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="css/bootstrap.min.js"></script>
 </head>
+<body>
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">
@@ -159,6 +159,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>
