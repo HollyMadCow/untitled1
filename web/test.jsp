@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="en">
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.*"%><!--使用Enumeration导入此包-->
