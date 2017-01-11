@@ -30,7 +30,7 @@
                     <ul class="nav navbar-nav">
                         <%--<li class="active">--%>
                         <li>
-                            <a href="#">您目前尚有<%%>件事务等待办结，点击查看。</a>
+                            <a href="javascript:void(0)" onclick="mybusiness()">您目前尚有<%%>件事务等待办结，点击查看。</a>
                         </li>
                         <li>
                             <a href="#">Link</a>
@@ -105,9 +105,22 @@
                 <%--<div class="panel-body">--%>
                     <%--Panel content--%>
                 <%--</div>--%>
+                <script>
+                    function mybusiness() {
+                        $( "#mainboard" ).load( "business.jsp");
+
+                    }
+                </script>
+                <script>
+                    function myinfo() {
+                        $( "#mainboard" ).load( "user.jsp");
+
+                    }
+                </script>
                 <ul class="list-group">
-                    <li class="list-group-item" ><a href="#"> 我的事务</a></li>
-                    <li class="list-group-item" ><a href="#"> 我的信息</a></li>
+                    <li class="list-group-item" ><a href="javascript:void(0)" onclick="mybusiness()"> 我的事务</a></li>
+                    <li class="list-group-item" ><a href="javascript:void(0)" onclick="myinfo()"> 我的信息</a></li>
+
                 </ul>
             </div>
         </div>
@@ -168,5 +181,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
