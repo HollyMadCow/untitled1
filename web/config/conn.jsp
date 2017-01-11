@@ -1,16 +1,20 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: CowBoy
-  Date: 2017/1/11
-  Time: 11:18
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ page import="java.util.*" %>
+<%@ page import="java.sql.*"  %>
 
-</body>
-</html>
+<%!
+
+    Connection conn = null ;
+    ResultSet  rs   = null ;
+    Statement stmt   ;
+    String url= null ;
+
+%>
+
+<%
+
+    try{
+        Class.forName("com.mysql.jdbc.Driver");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");
+        stmt = conn.createStatement();
+
+%>

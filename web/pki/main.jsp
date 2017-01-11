@@ -3,6 +3,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.*"%><!--使用Enumeration导入此包-->
+<%@page import="java.sql.*" %>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
+                   url="jdbc:mysql://localhost/yhgaj"
+                   user="root"  password="zlw255151"/>
+<sql:query dataSource="${snapshot}" var="result">
+    SELECT username from user;
+</sql:query>
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -30,7 +42,34 @@
                     <ul class="nav navbar-nav">
                         <%--<li class="active">--%>
                         <li>
+                            <%--<%--%>
+                                <%--//JSP页面直接访问数据库--%>
+                                <%--Connection conn = null;--%>
+                                <%--Statement stmt = null;--%>
+                                <%--ResultSet rs = null;--%>
+                                <%--try{--%>
+                                    <%--Class.forName("com.mysql.jdbc.Driver");--%>
+                                    <%--conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");--%>
+                                    <%--stmt = conn.createStatement();--%>
+                                    <%--rs = stmt.executeQuery("select username from USER ");--%>
+                                    <%--while(rs.next()){--%>
+                                        <%--String factor = rs.getString("username");--%>
+                            <%--%>--%>
                             <a href="javascript:void(0)" onclick="mybusiness()">您目前尚有<%%>件事务等待办结，点击查看。</a>
+                            <%--<%--%>
+                                    <%--}--%>
+                                <%--}catch(Exception e){--%>
+                                    <%--e.printStackTrace();--%>
+                                <%--}finally{--%>
+                                    <%--try{--%>
+                                        <%--if(rs != null) rs.close();--%>
+                                        <%--if(stmt != null) stmt.close();--%>
+                                        <%--if(conn != null) conn.close();--%>
+                                    <%--}catch(Exception e1){--%>
+                                        <%--e1.printStackTrace();--%>
+                                    <%--}--%>
+                                <%--}--%>
+                            <%--%>--%>
                         </li>
                         <li>
                             <a href="#">Link</a>
@@ -136,7 +175,7 @@
                     <%--<a class="btn btn-primary btn-large" href="#">Learn more</a>--%>
                 <%--</p>--%>
                     <script>
-                        $( "#mainboard" ).load( "reg.jsp");
+                        $( "#mainboard" ).load( "welcome.jsp");
                     </script>
             </div>
         </div>
