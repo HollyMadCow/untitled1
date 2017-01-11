@@ -4,16 +4,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.*"%><!--使用Enumeration导入此包-->
 <%@page import="java.sql.*" %>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-                   url="jdbc:mysql://localhost/yhgaj"
-                   user="root"  password="zlw255151"/>
-<sql:query dataSource="${snapshot}" var="result">
-    SELECT username from user;
-</sql:query>
+<%@ page import="javax.sql.DataSource" %>
+<%@ page import="javax.naming.*" %>
+
+<%--<%--%>
+    <%--Context initCtx = new InitialContext();--%>
+    <%--Context ctx = (Context) initCtx.lookup("java:comp/env");--%>
+<%--//获取连接池对象--%>
+    <%--DataSource ds =(DataSource)ctx.lookup("jdbc/ConnectionPool");--%>
+<%--//创建连接--%>
+    <%--Connection conn = ds.getConnection();--%>
+    <%--Statement stmt = conn.createStatement();--%>
+
+    <%--ResultSet rs=stmt.executeQuery("SELECT username FROM USER ");--%>
+<%--%>--%>
+
 
 <head>
     <meta charset="UTF-8">
@@ -42,45 +47,46 @@
                     <ul class="nav navbar-nav">
                         <%--<li class="active">--%>
                         <li>
-                            <%--<%--%>
-                                <%--//JSP页面直接访问数据库--%>
-                                <%--Connection conn = null;--%>
-                                <%--Statement stmt = null;--%>
-                                <%--ResultSet rs = null;--%>
-                                <%--try{--%>
-                                    <%--Class.forName("com.mysql.jdbc.Driver");--%>
-                                    <%--conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");--%>
-                                    <%--stmt = conn.createStatement();--%>
-                                    <%--rs = stmt.executeQuery("select username from USER ");--%>
-                                    <%--while(rs.next()){--%>
-                                        <%--String factor = rs.getString("username");--%>
-                            <%--%>--%>
-                            <a href="javascript:void(0)" onclick="mybusiness()">您目前尚有<%%>件事务等待办结，点击查看。</a>
-                                <c:forEach var="row" items="${result.rows}">
-                                    <tr>
-                                        <td><c:out value="${row.id}"/></td>
-                                        <td><c:out value="${row.name}"/></td>
-                                        <td><c:out value="${row.url}"/></td>
-                                    </tr>
-                                </c:forEach>
-                            <%--<%--%>
-                                    <%--}--%>
-                                <%--}catch(Exception e){--%>
-                                    <%--e.printStackTrace();--%>
-                                <%--}finally{--%>
-                                    <%--try{--%>
-                                        <%--if(rs != null) rs.close();--%>
-                                        <%--if(stmt != null) stmt.close();--%>
-                                        <%--if(conn != null) conn.close();--%>
-                                    <%--}catch(Exception e1){--%>
-                                        <%--e1.printStackTrace();--%>
-                                    <%--}--%>
-                                <%--}--%>
-                            <%--%>--%>
+                            <%
+                                //JSP页面直接访问数据库
+                                Connection conn = null;
+                                Statement stmt = null;
+                                ResultSet rs = null;
+                                try{
+//                                    Class.forName("com.mysql.jdbc.Driver");
+//                                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");
+//                                    stmt = conn.createStatement();
+//                                    rs = stmt.executeQuery("select username from USER ");
+                                    Context initCtx = new InitialContext();
+                                    Context ctx = (Context) initCtx.lookup("java:comp/env");
+//获取连接池对象
+                                    DataSource ds =(DataSource)ctx.lookup("jdbc/ConnectionPool");
+//创建连接
+                                    conn = ds.getConnection();
+                                     stmt = conn.createStatement();
+                                    rs = stmt.executeQuery("select username from USER ");
+                                    while(rs.next()){
+                                        String factor = rs.getString("username");
+                            %>
+                            <a href="javascript:void(0)" onclick="mybusiness()">您目前尚有<%=factor%>件事务等待办结，点击查看。</a>
+                            <%
+                                    }
+                                }catch(Exception e){
+                                    e.printStackTrace();
+                                }finally{
+                                    try{
+                                        if(rs != null) rs.close();
+                                        if(stmt != null) stmt.close();
+                                        if(conn != null) conn.close();
+                                    }catch(Exception e1){
+                                        e1.printStackTrace();
+                                    }
+                                }
+                            %>
                         </li>
-                        <li>
-                            <a href="#">Link</a>
-                        </li>
+                        <%--<li>--%>
+                            <%--<a href="#">Link</a>--%>
+                        <%--</li>--%>
                         <%--<li class="dropdown">--%>
                             <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>--%>
                             <%--<ul class="dropdown-menu">--%>
@@ -112,9 +118,9 @@
                         </div> <button type="submit" class="btn btn-default">搜索</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#">Link</a>
-                        </li>
+                        <%--<li>--%>
+                            <%--<a href="#">Link</a>--%>
+                        <%--</li>--%>
                         <%--<li class="dropdown">--%>
                             <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>--%>
                             <%--<ul class="dropdown-menu">--%>

@@ -1,20 +1,8 @@
-<%@ page import="java.util.*" %>
-<%@ page import="java.sql.*"  %>
-
-<%!
-
-    Connection conn = null ;
-    ResultSet  rs   = null ;
-    Statement stmt   ;
-    String url= null ;
-
-%>
+<%@ page import="javax.naming.*" %>
+<%@ page import="javax.sql.*" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.Statement" %>
 
 <%
-
-    try{
-        Class.forName("com.mysql.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");
-        stmt = conn.createStatement();
 
 %>
