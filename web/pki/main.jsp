@@ -56,7 +56,7 @@
 //                                    Class.forName("com.mysql.jdbc.Driver");
 //                                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");
 //                                    stmt = conn.createStatement();
-//                                    rs = stmt.executeQuery("select username from USER ");
+//
                                     Context initCtx = new InitialContext();
                                     Context ctx = (Context) initCtx.lookup("java:comp/env");
 //获取连接池对象
