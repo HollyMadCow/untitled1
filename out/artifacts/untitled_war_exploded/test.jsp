@@ -3,24 +3,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9" />
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@page import="java.util.*"%><!--使用Enumeration导入此包-->
-<%@page import="java.sql.*" %>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-<sql:setDataSource var="snapshot" driver="com.mysql.jdbc.Driver"
-                   url="jdbc:mysql://localhost/yhgaj"
-                   user="root"  password="zlw255151"/>
-<sql:query dataSource="${snapshot}" var="result">
-    SELECT username from user;
-</sql:query>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="css/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -39,36 +27,8 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <%--<li class="active">--%>
-                        <li>
-                            <%--<%--%>
-                                <%--//JSP页面直接访问数据库--%>
-                                <%--Connection conn = null;--%>
-                                <%--Statement stmt = null;--%>
-                                <%--ResultSet rs = null;--%>
-                                <%--try{--%>
-                                    <%--Class.forName("com.mysql.jdbc.Driver");--%>
-                                    <%--conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");--%>
-                                    <%--stmt = conn.createStatement();--%>
-                                    <%--rs = stmt.executeQuery("select username from USER ");--%>
-                                    <%--while(rs.next()){--%>
-                                        <%--String factor = rs.getString("username");--%>
-                            <%--%>--%>
-                            <a href="javascript:void(0)" onclick="mybusiness()">您目前尚有<%%>件事务等待办结，点击查看。</a>
-                            <%--<%--%>
-                                    <%--}--%>
-                                <%--}catch(Exception e){--%>
-                                    <%--e.printStackTrace();--%>
-                                <%--}finally{--%>
-                                    <%--try{--%>
-                                        <%--if(rs != null) rs.close();--%>
-                                        <%--if(stmt != null) stmt.close();--%>
-                                        <%--if(conn != null) conn.close();--%>
-                                    <%--}catch(Exception e1){--%>
-                                        <%--e1.printStackTrace();--%>
-                                    <%--}--%>
-                                <%--}--%>
-                            <%--%>--%>
+                        <li class="active">
+                            <a href="#">目前尚有<%%>件事务等待办结。</a>
                         </li>
                         <li>
                             <a href="#">Link</a>
@@ -134,48 +94,31 @@
     </div>
     <div class="row clearfix">
         <div class="col-md-2 column">
-            <div class="panel panel-primary">
+            <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         我的事务
                     </h3>
                 </div>
-                <%--<div class="panel-body">--%>
-                    <%--Panel content--%>
-                <%--</div>--%>
-                <script>
-                    function mybusiness() {
-                        $( "#mainboard" ).load( "business.jsp");
-
-                    }
-                </script>
-                <script>
-                    function myinfo() {
-                        $( "#mainboard" ).load( "user.jsp");
-
-                    }
-                </script>
-                <ul class="list-group">
-                    <li class="list-group-item" ><a href="javascript:void(0)" onclick="mybusiness()"> 我的事务</a></li>
-                    <li class="list-group-item" ><a href="javascript:void(0)" onclick="myinfo()"> 我的信息</a></li>
-
-                </ul>
+                <div class="panel-body">
+                    Panel content
+                </div>
+                <div class="panel-footer">
+                    玉环公安局
+                </div>
             </div>
         </div>
         <div class="col-md-10 column">
-            <div class="jumbotron" id="mainboard">
-                <%--<h1>--%>
-                    <%--Hello, world!--%>
-                <%--</h1>--%>
-                <%--<p>--%>
-                    <%--This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.--%>
-                <%--</p>--%>
-                <%--<p>--%>
-                    <%--<a class="btn btn-primary btn-large" href="#">Learn more</a>--%>
-                <%--</p>--%>
-                    <script>
-                        $( "#mainboard" ).load( "welcome.jsp");
-                    </script>
+            <div class="jumbotron">
+                <h1>
+                    Hello, world!
+                </h1>
+                <p>
+                    This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-large" href="#">Learn more</a>
+                </p>
             </div>
         </div>
     </div>
@@ -219,6 +162,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>

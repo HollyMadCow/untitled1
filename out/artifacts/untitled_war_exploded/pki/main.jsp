@@ -14,6 +14,7 @@
 <sql:query dataSource="${snapshot}" var="result">
     SELECT username from user;
 </sql:query>
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -55,6 +56,13 @@
                                         <%--String factor = rs.getString("username");--%>
                             <%--%>--%>
                             <a href="javascript:void(0)" onclick="mybusiness()">您目前尚有<%%>件事务等待办结，点击查看。</a>
+                                <c:forEach var="row" items="${result.rows}">
+                                    <tr>
+                                        <td><c:out value="${row.id}"/></td>
+                                        <td><c:out value="${row.name}"/></td>
+                                        <td><c:out value="${row.url}"/></td>
+                                    </tr>
+                                </c:forEach>
                             <%--<%--%>
                                     <%--}--%>
                                 <%--}catch(Exception e){--%>
