@@ -51,7 +51,8 @@
 //创建连接
                                     conn = ds.getConnection();
                                      stmt = conn.createStatement();
-                                    rs = stmt.executeQuery("select username from USER ");
+                                     String sql="select username from USER ";
+                                    rs = stmt.executeQuery(sql);
                                     while(rs.next()){
                                         String factor = rs.getString("username");
                             %>
