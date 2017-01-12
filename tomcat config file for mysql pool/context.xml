@@ -26,9 +26,9 @@
 			type = "javax.sql.DataSource"
 			password = "zlw255151"
 			driverClassName = "com.mysql.jdbc.Driver"
-			maxIdle = "2"
+			maxIdle = "10"
 			username = "root"
-			url = "jdbc:MYSQL://localhost:3306/yhgawj?useSSL=false"/>
+			url = "jdbc:MYSQL://localhost:3306/yhgaj?useSSL=false"/>
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 

@@ -7,19 +7,6 @@
 <%@ page import="javax.sql.DataSource" %>
 <%@ page import="javax.naming.*" %>
 
-<%--<%--%>
-    <%--Context initCtx = new InitialContext();--%>
-    <%--Context ctx = (Context) initCtx.lookup("java:comp/env");--%>
-<%--//获取连接池对象--%>
-    <%--DataSource ds =(DataSource)ctx.lookup("jdbc/ConnectionPool");--%>
-<%--//创建连接--%>
-    <%--Connection conn = ds.getConnection();--%>
-    <%--Statement stmt = conn.createStatement();--%>
-
-    <%--ResultSet rs=stmt.executeQuery("SELECT username FROM USER ");--%>
-<%--%>--%>
-
-
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -56,7 +43,7 @@
 //                                    Class.forName("com.mysql.jdbc.Driver");
 //                                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");
 //                                    stmt = conn.createStatement();
-//                                    rs = stmt.executeQuery("select username from USER ");
+//
                                     Context initCtx = new InitialContext();
                                     Context ctx = (Context) initCtx.lookup("java:comp/env");
 //获取连接池对象
@@ -114,9 +101,24 @@
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input class="form-control" type="text" placeholder="任意关键字全文搜索"/>
-                        </div> <button type="submit" class="btn btn-default">搜索</button>
+                            <input class="form-control" type="text" id="searchfiled" placeholder="任意关键字全文搜索"/>
+                        </div>
+                        <button type="button" class="btn btn-default" onclick="mysearch()">搜索</button>
                     </form>
+                    <script>//
+                        function mysearch() {
+                            if (document.getElementById("searchfiled").value != "")
+                            {
+                                var keyword = document.getElementById("searchfiled").value;
+                                $( "#mainboard" ).load("search.jsp",{"keyword":keyword});
+                            }
+                            else
+                            {
+                                $( "#mainboard" ).load("search.jsp",{"keyword":"no"});
+                            }
+
+                        }
+                    </script>
                     <ul class="nav navbar-nav navbar-right">
                         <%--<li>--%>
                             <%--<a href="#">Link</a>--%>
@@ -160,13 +162,11 @@
                 <script>
                     function mybusiness() {
                         $( "#mainboard" ).load( "business.jsp");
-
                     }
                 </script>
                 <script>
                     function myinfo() {
                         $( "#mainboard" ).load( "user.jsp");
-
                     }
                 </script>
                 <ul class="list-group">
@@ -199,7 +199,7 @@
                 Heading
             </h2>
             <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                1
             </p>
             <p>
                 <a class="btn" href="#">View details »</a>
@@ -210,7 +210,7 @@
                 Heading
             </h2>
             <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                2
             </p>
             <p>
                 <a class="btn" href="#">View details »</a>
@@ -221,7 +221,7 @@
                 Heading
             </h2>
             <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                3
             </p>
             <p>
                 <a class="btn" href="#">View details »</a>
@@ -233,6 +233,5 @@
         </div>
     </div>
 </div>
-
 </body>
 </html>
