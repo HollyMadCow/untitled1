@@ -15,8 +15,11 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-3.1.1.min.js"></script>
 </head>
+<style>
+
+</style>
 <body>
-<div class="container">
+<div class="container-fluid">
     <div class="row clearfix">
         <div class="col-md-12 column">
             <nav class="navbar navbar-default" role="navigation">
@@ -51,7 +54,8 @@
 //创建连接
                                     conn = ds.getConnection();
                                      stmt = conn.createStatement();
-                                    rs = stmt.executeQuery("select username from USER ");
+                                     String sql="select username from USER ";
+                                    rs = stmt.executeQuery(sql);
                                     while(rs.next()){
                                         String factor = rs.getString("username");
                             %>
@@ -112,11 +116,6 @@
                                 var keyword = document.getElementById("searchfiled").value;
                                 $( "#mainboard" ).load("search.jsp",{"keyword":keyword});
                             }
-                            else
-                            {
-                                $( "#mainboard" ).load("search.jsp",{"keyword":"no"});
-                            }
-
                         }
                     </script>
                     <ul class="nav navbar-nav navbar-right">
@@ -149,7 +148,7 @@
         </div>
     </div>
     <div class="row clearfix">
-        <div class="col-md-2 column">
+        <div class="col-md-2 column" id="left">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">
@@ -170,13 +169,13 @@
                     }
                 </script>
                 <ul class="list-group">
-                    <li class="list-group-item" ><a href="javascript:void(0)" onclick="mybusiness()"> 我的事务</a></li>
+                    <li class="list-group-item" style=""><a href="javascript:void(0)" onclick="mybusiness()"> 我的事务</a></li>
                     <li class="list-group-item" ><a href="javascript:void(0)" onclick="myinfo()"> 我的信息</a></li>
 
                 </ul>
             </div>
         </div>
-        <div class="col-md-10 column">
+        <div class="col-md-10 column" id="right">
             <div class="jumbotron" id="mainboard">
                 <%--<h1>--%>
                     <%--Hello, world!--%>
