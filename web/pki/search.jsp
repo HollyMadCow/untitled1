@@ -61,6 +61,34 @@
         <td>发货中</td>
         <td>待发货</td>
     </tr>
+    <tr  class="danger">
+        <td>产品4</td>
+        <td>20/10/2013</td>
+        <td>已退货</td>
+        <td>发货中</td>
+        <td>待发货</td>
+    </tr>
+    <tr  class="danger">
+        <td>产品4</td>
+        <td>20/10/2013</td>
+        <td>已退货</td>
+        <td>发货中</td>
+        <td>待发货</td>
+    </tr>
+    <tr  class="danger">
+        <td>产品4</td>
+        <td>20/10/2013</td>
+        <td>已退货</td>
+        <td>发货中</td>
+        <td>待发货</td>
+    </tr>
+    <tr  class="danger">
+        <td>产品4</td>
+        <td>20/10/2013</td>
+        <td>已退货</td>
+        <td>发货中</td>
+        <td>待发货</td>
+    </tr>
     </tbody>
 </table>
 
