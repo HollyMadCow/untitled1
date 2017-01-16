@@ -13,6 +13,6 @@
     <title>事务栏</title>
 </head>
 <body>
-<p>事务栏</p>
+<a onclick="location.href='javascript:history.go(-1);'">事务栏</a>
 </body>
 </html>
