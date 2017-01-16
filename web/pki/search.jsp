@@ -19,6 +19,12 @@
     <script src="../js/jquery-3.1.1.min.js"></script>
 </head>
 <body>
+<script>
+    function searchdetail() {
+//        $( "#mainboard" ).load( "business.jsp");
+        window.open("searchdetail.jsp");
+    }
+</script>
 <table class="table">
     <%--<caption>上下文表格布局</caption>--%>
     <thead>
@@ -45,7 +51,7 @@
         <td>10/11/2013</td>
         <td>发货中</td>
         <td>待发货</td>
-        <td><a href="javascript:void(0)" onclick="mybusiness()">详细</a></td>
+        <td><a href="searchdetail.jsp" target="_blank">详细</a></td>
     </tr>
     <tr  class="warning">
         <td>产品3</td>

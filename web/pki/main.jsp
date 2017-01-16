@@ -6,7 +6,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.DataSource" %>
 <%@ page import="javax.naming.*" %>
-<%@ include file="sql.jsp"%>
+<%@ include file="../include/sql.jsp"%>
 <%@include file="userinfo.jsp"%>
 <%--<jsp:include page="sql.jsp"></jsp:include>--%>
 
