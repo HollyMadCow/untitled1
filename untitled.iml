@@ -23,7 +23,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jsp-api" level="application" />
     <orderEntry type="library" name="servlet-api" level="application" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.40-bin" level="application" />
     <orderEntry type="library" name="standard" level="project" />
     <orderEntry type="library" name="jstl" level="project" />
   </component>

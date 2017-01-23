@@ -23,22 +23,22 @@
     <br />
     <div class="row clearfix">
         <div class="col-md-2 column">
-            <label>简要案情：</label>
+            <label>案件编号：<%%></label>
         </div>
         <div class="col-md-2 column">
-            <label>简要案情：<P>haha</P></label>
+            <label>案件名称：<%%></label>
         </div>
         <div class="col-md-2 column">
-            <label>简要案情：</label>
+            <label>简要案情：<%%></label>
         </div>
         <div class="col-md-2 column">
-            <label>简要案情：</label>
+            <label>简要案情：<%%></label>
         </div>
         <div class="col-md-2 column">
-            <label>简要案情：</label>
+            <label>简要案情：<%%></label>
         </div>
         <div class="col-md-2 column">
-            <label>简要案情：</label>
+            <label>简要案情：<%%></label>
         </div>
     </div>
 </div>
