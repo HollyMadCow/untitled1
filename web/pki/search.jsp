@@ -54,7 +54,7 @@
         <td>发货中</td>
         <td>待发货</td>
         <td>待发货</td>
-        <td><a href="searchdetail.jsp" target="_blank">详细</a></td>
+        <td><a href="casedetail.jsp" target="_blank">详细</a></td>
     </tr>
     <tr  class="warning">
         <td>产品3</td>
