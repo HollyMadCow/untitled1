@@ -10,6 +10,8 @@
     Statement stmt = null;
     ResultSet rs = null;
     String casecount = null;
+    String userid = null;
+
     try{
 //                                    Class.forName("com.mysql.jdbc.Driver");
 //                                    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yhgaj", "root", "zlw255151");
@@ -22,10 +24,11 @@
 //创建连接
         conn = ds.getConnection();
         stmt = conn.createStatement();
-        String sql="select username from USER ";
+        String sql="select username,userid from USER WHERE userid='331021198209300019'";
         rs = stmt.executeQuery(sql);
         while(rs.next()){
             casecount = rs.getString("username");
+            userid = rs.getString("userid");
         }
     }catch(Exception e){
         e.printStackTrace();

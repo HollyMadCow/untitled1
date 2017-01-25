@@ -6,7 +6,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="javax.sql.DataSource" %>
 <%@ page import="javax.naming.*" %>
-<%@ include file="../include/sql.jsp"%>
+<%@ include file="/WEB-INF/include/sql.jsp" %>
 <%@include file="userinfo.jsp"%>
 <%--<jsp:include page="sql.jsp"></jsp:include>--%>
 
@@ -17,6 +17,36 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-3.1.1.min.js"></script>
+    <script>//
+    function mysearch() {
+        if (document.getElementById("searchfiled").value != "")
+        {
+            var keyword = document.getElementById("searchfiled").value;
+            $( "#mainboard" ).load("search.jsp",{"keyword":keyword});
+        }
+    }
+    </script>
+    <script>
+        function mybusiness() {
+            $( "#mainboard" ).load( "business.jsp");
+        }
+    </script>
+    <script>
+        function myinfo() {
+            $( "#mainboard" ).load( "reg.jsp");
+        }
+    </script>
+    <script>
+
+        window.onload=function () {
+            var test=<%=userid%>;
+            if(test == null)
+            {
+                $( "#mainboard" ).load( "reg.jsp");
+            }
+
+        }
+    </script>
 </head>
 
 <body>
@@ -47,15 +77,7 @@
                         </div>
                         <button type="button" class="btn btn-default" onclick="mysearch()">搜索</button>
                     </form>
-                    <script>//
-                        function mysearch() {
-                            if (document.getElementById("searchfiled").value != "")
-                            {
-                                var keyword = document.getElementById("searchfiled").value;
-                                $( "#mainboard" ).load("search.jsp",{"keyword":keyword});
-                            }
-                        }
-                    </script>
+
                     <ul class="nav navbar-nav navbar-right">
 
                     </ul>
@@ -75,16 +97,7 @@
                 <%--<div class="panel-body">--%>
                     <%--Panel content--%>
                 <%--</div>--%>
-                <script>
-                    function mybusiness() {
-                        $( "#mainboard" ).load( "business.jsp");
-                    }
-                </script>
-                <script>
-                    function myinfo() {
-                        $( "#mainboard" ).load( "user.jsp");
-                    }
-                </script>
+
                 <ul class="list-group">
                     <li class="list-group-item" style=""><a href="javascript:void(0)" onclick="mybusiness()"> 我的事务</a></li>
                     <li class="list-group-item" ><a href="javascript:void(0)" onclick="myinfo()"> 我的信息</a></li>
